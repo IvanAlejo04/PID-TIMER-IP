@@ -4,16 +4,6 @@ A Verilog PID controller combined with a Timer module, where the PID output is c
 
 ## Proportion Module
 
-![proportion_code](https://github.com/IvanAlejo04/PID-TIMER-IP/blob/aaab94f1bcf2c693eee31e58a530c2ade3c7a744/carbon%20(9).png?raw=true)
-
-This project uses a **Q16.16 fixed-point format** for all PID computations.
-
-**Key implementation details:**
-
-- **Input width (33-bit):** `KP` and `ERR` are stored as Q16.16 (32-bit), plus 1 extra bit to account for the sign, giving 33 bits total.
-- **Intermediate multiplication (66-bit):** Multiplying two 33-bit signed values requires a 66-bit result to avoid overflow, hence `wire signed [65:0] mul = ERR * KP;`.
-- **Re-normalizing to Q16.16:** Multiplying two Q16.16 numbers produces a Q32.32 result. Shifting right by 16 (`>>> 16`) brings it back down to Q16.16.
-
 ```verilog
 module proportion (
 
@@ -37,3 +27,13 @@ module proportion (
 
 endmodule
 ```
+
+
+This project uses a **Q16.16 fixed-point format** for all PID computations.
+
+**Key implementation details:**
+
+- **Input width (33-bit):** `KP` and `ERR` are stored as Q16.16 (32-bit), plus 1 extra bit to account for the sign, giving 33 bits total.
+- **Intermediate multiplication (66-bit):** Multiplying two 33-bit signed values requires a 66-bit result to avoid overflow, hence `wire signed [65:0] mul = ERR * KP;`.
+- **Re-normalizing to Q16.16:** Multiplying two Q16.16 numbers produces a Q32.32 result. Shifting right by 16 (`>>> 16`) brings it back down to Q16.16.
+
