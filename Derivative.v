@@ -11,6 +11,9 @@ module derivative (
 
 );
 
+ //---formula---// 
+  // D = Kd * (error - past_error) / dt;
+    
   reg signed  [32:0] PAST_ERR = 33'd0;
 
   wire signed [65:0] mul = KD_dt * (ERR - PAST_ERR);
