@@ -1,7 +1,6 @@
 module derivative (
 
     input PCLK,
-    input RST,
 
     input signed [32:0] KD_dt,
     input signed [32:0] ERR,
