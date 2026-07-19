@@ -1,5 +1,10 @@
 # PID-TIMER-IP
 
+> ⚠️ **Status: Work in Progress**
+> Currently implemented: Proportion, Derivative
+> Not yet implemented: Integral term, Timer/CCR interface
+
+
 A Verilog PID controller combined with a Timer module, where the PID output is connected directly to the Timer's CCR (Capture/Compare Register).
 
 ## Proportion Module
