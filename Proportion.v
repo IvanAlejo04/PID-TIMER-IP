@@ -2,7 +2,7 @@ module proportion (
 
     input signed [32:0] KP,
     input signed [32:0] ERR,
-    output reg signed [31:0] P
+    output reg signed [32:0] P
 
 );
 
