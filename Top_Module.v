@@ -13,7 +13,8 @@ module PID_TOP (
     input signed [32:0] MAX_CLMP,
     input signed [32:0] MIN_CLMP,
 
-    output signed [32:0] PID
+    output signed [50:0] PID /* Turn to 50 based on problem I encounter where the output is not matching the 
+    intended output due to its size overflowing the bit range  */
 
 );
 
